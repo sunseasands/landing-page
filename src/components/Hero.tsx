@@ -1,26 +1,24 @@
 import { hero } from '../data/content'
+import BotanicalBackdrop from './BotanicalBackdrop'
 import Nav from './Nav'
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen flex-col overflow-hidden bg-linen px-5 pt-24 sm:px-10">
-      {/* Full-bleed botanical background placeholder — swap for real photography at ~10-15% opacity, full-bleed, no mask */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-sage-type/10 via-transparent to-transparent"
-      />
+    <section className="relative flex min-h-screen flex-col overflow-hidden bg-linen px-5 pt-24 pb-16 sm:px-10">
+      <BotanicalBackdrop />
 
+      {/* Colossal side label — upright, pinned to the right edge and cropped by the viewport */}
       <span
         aria-hidden
-        className="fade-in pointer-events-none absolute top-1/2 right-2 hidden -translate-y-1/2 rotate-90 font-ranade text-display leading-none text-olive-ink [animation-delay:600ms] sm:right-4 md:block"
+        className="fade-in pointer-events-none absolute right-0 bottom-[9%] hidden translate-x-[40%] font-ranade text-[22vw] leading-none font-bold text-olive-ink/75 [animation-delay:500ms] md:block"
       >
         {hero.sideLabel}
       </span>
 
       <div className="relative flex flex-1 flex-col justify-center">
-        <h1 className="font-ranade text-[18vw] leading-wordmark font-normal text-sage-type sm:text-[15vw] lg:text-wordmark">
+        <h1 className="font-ranade text-[18vw] leading-[0.95] font-normal text-sage-type sm:text-[16vw]">
           {hero.wordmark.map((line, i) => (
-            <span key={line} className="rise-mask">
+            <span key={line} className="rise-mask leading-[0.95]">
               <span className="rise" style={{ animationDelay: `${120 + i * 140}ms` }}>
                 {line}
               </span>
@@ -29,7 +27,7 @@ export default function Hero() {
         </h1>
       </div>
 
-      <p className="fade-in relative max-w-sm pb-20 font-switzer text-body leading-body font-medium text-olive-ink [animation-delay:700ms] sm:pb-16">
+      <p className="fade-in relative mb-4 max-w-sm font-switzer text-body leading-body font-medium text-olive-ink [animation-delay:700ms]">
         {hero.subtitle}
       </p>
 

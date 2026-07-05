@@ -11,7 +11,8 @@ export const nav = [
 
 export const hero = {
   wordmark: ['SUN SEA', 'SANDS'],
-  sideLabel: 'AGENCY',
+  // Upright, colossal, bleeding off the right viewport edge (like KAY on the reference)
+  sideLabel: 'SSS',
   subtitle:
     'We bring creative solutions working as consultants, project managers and on-set producers for a variety of projects.',
 }
