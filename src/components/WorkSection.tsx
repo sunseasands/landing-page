@@ -7,9 +7,17 @@ const variantFor = (i: number): Variant =>
   i % 4 === 3 ? 'poster' : i % 2 === 1 ? 'editorial' : 'site'
 
 // Placeholder for the reference's live website recordings: a skeleton
-// webpage twice the frame height that scrolls upward on hover.
-// Swap each variant for a real screenshot/video when assets arrive.
-function PagePreview({ variant, label }: { variant: Variant; label: string }) {
+// webpage three screens tall that auto-scrolls on an infinite loop,
+// desynchronized per card. Swap for real screenshots/clips when assets arrive.
+function PagePreview({
+  variant,
+  label,
+  index,
+}: {
+  variant: Variant
+  label: string
+  index: number
+}) {
   if (variant === 'poster') {
     return (
       <div className="flex h-full w-full flex-col items-center justify-center gap-4 bg-olive-ink px-3 py-4 transition-transform duration-700 ease-out group-hover:scale-105">
@@ -32,9 +40,15 @@ function PagePreview({ variant, label }: { variant: Variant; label: string }) {
   const isEditorial = variant === 'editorial'
   return (
     <div className="h-full w-full overflow-hidden bg-[#faf6ee]">
-      <div className="h-[200%] w-full transition-transform duration-[1600ms] ease-in-out group-hover:-translate-y-1/2">
-        {/* First screen */}
-        <div className="flex h-1/2 flex-col gap-2 p-3">
+      <div
+        className="preview-autoplay h-[300%] w-full"
+        style={{
+          animationDelay: `${-(index * 2.3)}s`,
+          animationDuration: `${8.5 + (index % 3) * 1.5}s`,
+        }}
+      >
+        {/* Screen 1 — landing */}
+        <div className="flex h-1/3 flex-col gap-2 p-3">
           <div className="flex items-center justify-between">
             <div className="h-1.5 w-8 bg-olive-ink/60" />
             <div className="flex gap-1">
@@ -47,8 +61,8 @@ function PagePreview({ variant, label }: { variant: Variant; label: string }) {
           <div className="h-3 w-1/2 bg-olive-ink/70" />
           <div className={`mt-2 flex-1 ${isEditorial ? 'bg-riverstone/40' : 'bg-sage-type/30'}`} />
         </div>
-        {/* Second screen, revealed by the hover scroll */}
-        <div className="flex h-1/2 flex-col gap-1.5 p-3">
+        {/* Screen 2 — article */}
+        <div className="flex h-1/3 flex-col gap-1.5 p-3">
           <div className="h-2 w-1/3 bg-olive-ink/50" />
           <div className="h-1.5 w-full bg-olive-ink/25" />
           <div className="h-1.5 w-5/6 bg-olive-ink/25" />
@@ -57,6 +71,17 @@ function PagePreview({ variant, label }: { variant: Variant; label: string }) {
             <div className={isEditorial ? 'bg-sienna/50' : 'bg-driftwood/50'} />
             <div className={isEditorial ? 'bg-sage-type/30' : 'bg-riverstone/40'} />
           </div>
+        </div>
+        {/* Screen 3 — gallery + footer */}
+        <div className="flex h-1/3 flex-col gap-1.5 p-3">
+          <div className={`flex-1 ${isEditorial ? 'bg-driftwood/45' : 'bg-sienna/45'}`} />
+          <div className="grid h-1/4 grid-cols-3 gap-1.5">
+            <div className="bg-riverstone/35" />
+            <div className="bg-sage-type/30" />
+            <div className="bg-olive-ink/15" />
+          </div>
+          <div className="mt-1 h-1.5 w-2/5 bg-olive-ink/40" />
+          <div className="h-1 w-1/4 bg-olive-ink/25" />
         </div>
       </div>
     </div>
@@ -108,7 +133,7 @@ export default function WorkSection() {
                     <div
                       className={`relative overflow-hidden ${variant === 'poster' ? 'aspect-[4/5]' : 'aspect-[5/4]'}`}
                     >
-                      <PagePreview variant={variant} label={project.label} />
+                      <PagePreview variant={variant} label={project.label} index={i} />
                     </div>
                   </div>
                 </div>

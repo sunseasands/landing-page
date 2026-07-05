@@ -89,6 +89,30 @@
     opacity: 1;
     transform: none;
   }
+
+  /* Looping "site recording" scroll for project-card previews */
+  .preview-autoplay {
+    animation: preview-scroll 9s ease-in-out infinite;
+  }
+}
+
+@keyframes preview-scroll {
+  0%,
+  14% {
+    transform: translateY(0);
+  }
+  32%,
+  48% {
+    transform: translateY(-33.334%);
+  }
+  66%,
+  84% {
+    transform: translateY(-66.667%);
+  }
+  94%,
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes rise {
