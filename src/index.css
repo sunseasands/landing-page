@@ -41,10 +41,86 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-linen);
     color: var(--color-olive-ink);
     font-family: var(--font-switzer);
     font-weight: 500;
+  }
+}
+
+@layer utilities {
+  /* Load-time reveal: lines rise out of a clipped container (hero wordmark) */
+  .rise-mask {
+    display: block;
+    overflow: hidden;
+  }
+
+  .rise {
+    display: block;
+    transform: translateY(110%);
+    animation: rise 0.9s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+  }
+
+  /* Load-time fade for hero furniture (side label, subtitle, nav) */
+  .fade-in {
+    opacity: 0;
+    animation: fade-in 0.8s ease-out forwards;
+  }
+
+  /* Scroll-triggered reveal, toggled by useReveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rise,
+  .fade-in {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  .reveal {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

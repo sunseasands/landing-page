@@ -4,8 +4,8 @@
 // we have them. Items marked PLACEHOLDER have no real source yet.
 
 export const nav = [
-  { label: 'Work', href: '#work' },
-  { label: 'Profile', href: '#profile' },
+  { label: 'Production', href: '#production' },
+  { label: 'Agency', href: '#agency' },
   { label: 'Contact', href: '#contact' },
 ]
 

@@ -12,22 +12,24 @@ export default function Hero() {
 
       <span
         aria-hidden
-        className="pointer-events-none absolute top-1/2 right-2 hidden -translate-y-1/2 rotate-90 font-ranade text-display leading-none text-olive-ink sm:right-4 md:block"
+        className="fade-in pointer-events-none absolute top-1/2 right-2 hidden -translate-y-1/2 rotate-90 font-ranade text-display leading-none text-olive-ink [animation-delay:600ms] sm:right-4 md:block"
       >
         {hero.sideLabel}
       </span>
 
       <div className="relative flex flex-1 flex-col justify-center">
         <h1 className="font-ranade text-[18vw] leading-wordmark font-normal text-sage-type sm:text-[15vw] lg:text-wordmark">
-          {hero.wordmark.map((line) => (
-            <span key={line} className="block">
-              {line}
+          {hero.wordmark.map((line, i) => (
+            <span key={line} className="rise-mask">
+              <span className="rise" style={{ animationDelay: `${120 + i * 140}ms` }}>
+                {line}
+              </span>
             </span>
           ))}
         </h1>
       </div>
 
-      <p className="relative max-w-sm pb-20 font-switzer text-body leading-body font-medium text-olive-ink sm:pb-16">
+      <p className="fade-in relative max-w-sm pb-20 font-switzer text-body leading-body font-medium text-olive-ink [animation-delay:700ms] sm:pb-16">
         {hero.subtitle}
       </p>
 
