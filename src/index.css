@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Editorial black & white system — matches the live sunseasands.com brand */
+  --color-ink: #0a0a0a;
+  --color-paper: #ffffff;
+  --color-muted: #6b6b6b;
+
+  /* Serif — wordmark, nav, body copy, bios (placeholder: PT Serif until the brand's licensed serif is supplied) */
+  --font-serif: 'PT Serif', Georgia, 'Times New Roman', serif;
+  /* Bold grotesque — running headline, section anchors, roster group labels */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-serif);
+  }
+}
+
+@layer utilities {
+  .marquee-track {
+    animation: marquee 22s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
