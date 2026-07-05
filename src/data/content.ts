@@ -1,105 +1,72 @@
-// Content sourced from screenshots of the live sunseasands.com site plus
-// verified public facts (address, email, socials). Items marked PLACEHOLDER
-// have no real source yet — swap them before launch.
-
-export const brand = {
-  name: 'Sun Sea Sands',
-  tagline: 'Agency.',
-}
+// Base template: a faithful implementation of the Shelby Kay design system
+// (tokens.json / theme.css / DESIGN_1.md) — the "botanical editorial" layout,
+// type scale, and component set — carrying Sun Sea Sands' real facts where
+// we have them. Items marked PLACEHOLDER have no real source yet.
 
 export const nav = [
-  { label: 'Agency', href: '/' },
-  { label: 'Artists', href: '/artists' },
-  { label: 'Series', href: '/series' },
-  { label: 'Archive', href: '/archive' },
+  { label: 'Work', href: '#work' },
+  { label: 'Profile', href: '#profile' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export const hero = {
-  paragraphs: [
+  wordmark: ['SUN SEA', 'SANDS'],
+  sideLabel: 'AGENCY',
+  subtitle:
     'We bring creative solutions working as consultants, project managers and on-set producers for a variety of projects.',
-    'We advise the brands we work with, both fashion and commercial, through editorial projects or advertising assignments and provide full production services & artists management /',
-  ],
 }
 
-export const runningText = 'FRESH APPROACH TO COMMUNICATE'
-
-export const departments = [
+export const services = [
   {
-    label: 'Artists',
+    label: 'Content Strategy',
     description:
-      "department is dedicated to connecting clients with the perfect professionals to meet the project's unique requirements. We seek out the talents that align with your vision, ensuring a seamless fit for the project's success.",
-    linkLabel: 'View Artists',
-    href: '/artists',
+      'Personalized content strategies, developing detailed plans that adapt to budget and objectives — types, quantities, sizes and formats of assets.',
   },
   {
-    label: 'Development',
+    label: 'Production Planning & Direction',
     description:
-      "department turns ideas into creative concepts, devising and developing a wide range of content for our clients' different platforms.",
-    linkLabel: 'View projects',
-    href: '/series',
+      'Shooting plans that optimize schedules and reach desired assets while guaranteeing efficiency and results within established timelines.',
   },
   {
-    label: 'Production',
+    label: 'Talent & Location Management',
     description:
-      'department offers small and large-scale production and coordination of editorial and advertising photo shoots, film and digital content creation. It specializes in all aspects of production, such as location scouting, casting, team management and behind-the-scenes coordination, working on a tailor-made basis for each client.',
-    linkLabel: 'View projects',
-    href: '/archive',
+      'Specialized professionals for each project, digital or in-person castings, model selection, and rental of locations, equipment and services.',
+  },
+  {
+    label: 'Project Management',
+    description:
+      'On-set direction of the team and the project to meet established objectives from concept to delivery.',
   },
 ]
 
-export type RosterEntry = {
-  name: string
-  slug?: string
-}
-
-export const artistRoster: { group: string; entries: RosterEntry[] }[] = [
-  {
-    group: 'Photographers',
-    entries: [{ name: 'Carlos Villarejo' }, { name: 'Edward Córdoba' }],
-  },
-  {
-    group: 'Fashion Director & Stylist',
-    entries: [{ name: 'Victoria Nogales' }],
-  },
-  {
-    group: 'Make Up & Hair Artists',
-    entries: [
-      { name: 'Alex Gancedo' },
-      { name: 'María García', slug: 'maria-garcia' },
-      { name: 'Pau Sellés' },
-      { name: 'Prado Núñez de Arenas', slug: 'prado-nunez-de-arenas' },
-    ],
-  },
+// PLACEHOLDER — replace with real Track Record projects.
+export const workProjects = [
+  { id: '01', label: 'PJ', date: '01 / 26' },
+  { id: '02', label: 'LI', date: '02 / 26' },
+  { id: '03', label: 'CM', date: '03 / 26' },
+  { id: '04', label: 'ED', date: '04 / 26' },
+  { id: '05', label: 'AD', date: '05 / 26' },
+  { id: '06', label: 'FS', date: '06 / 26' },
+  { id: '07', label: 'BR', date: '07 / 26' },
+  { id: '08', label: 'CP', date: '08 / 26' },
 ]
 
-export type ArtistProfile = {
-  slug: string
-  name: string
-  role: string
-  bio: string
-  categories: string[]
-  instagram: string
-  sections: { category: string; description: string; imageCount: number }[]
-}
+// PLACEHOLDER — replace with real client roster.
+export const clientList = [
+  'Lorem Fashion House',
+  'Ipsum Studio',
+  'Dolor Cosmetics',
+  'Sit Amet Jewelry',
+  'Consectetur Group',
+  'Adipiscing Brand',
+]
 
-export const artistProfiles: Record<string, ArtistProfile> = {
-  'maria-garcia': {
-    slug: 'maria-garcia',
-    name: 'María García',
-    role: 'Make Up & Hair Artist',
-    bio: 'María García is a Madrid-based makeup artist and hairstylist with experience in editorials, advertising, and work with renowned celebrities. She specializes in enhancing natural beauty and creating unique looks for brands and clients worldwide',
-    categories: ['Editorial', 'Advertising', 'Talents'],
-    instagram: 'https://www.instagram.com/sunseasands.agency/',
-    sections: [
-      {
-        category: 'Editorial',
-        description:
-          'María García combines elegance and creativity in every project, achieving a balance that stands out in fashion editorials. Her work with renowned photographers and publications has solidified her style, known for highlighting natural beauty while exploring new artistic expressions',
-        imageCount: 3,
-      },
-    ],
-  },
-}
+// PLACEHOLDER — replace with real recognition / press mentions.
+export const recognition = [
+  { project: 'Lorem Ipsum Campaign', detail: 'Featured — Dolor Magazine, 2026' },
+  { project: 'Consectetur Editorial', detail: 'Selected — Adipiscing Awards, 2025' },
+  { project: 'Sit Amet Collection', detail: 'Shortlisted — Elit Prize, 2025' },
+]
 
 export const contact = {
   email: 'info@sunseasands.com',
